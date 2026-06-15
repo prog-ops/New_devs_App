@@ -1,5 +1,6 @@
 from datetime import datetime
 from decimal import Decimal
+import pytz
 from typing import Dict, Any, List
 
 async def calculate_monthly_revenue(property_id: str, month: int, year: int, db_session=None) -> Decimal:
@@ -11,6 +12,7 @@ async def calculate_monthly_revenue(property_id: str, month: int, year: int, db_
     I imported pytz added UTC usage to ensure consistency.
     """
 
+    # Fix incorrect commit text: added tzinfo=pytz.UTC here
     start_date = datetime(year, month, 1, tzinfo=pytz.UTC)
     if month < 12:
         end_date = datetime(year, month + 1, 1, tzinfo=pytz.UTC)
