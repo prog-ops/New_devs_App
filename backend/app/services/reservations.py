@@ -5,7 +5,6 @@ from typing import Dict, Any, List
 async def calculate_monthly_revenue(property_id: str, month: int, year: int, db_session=None) -> Decimal:
     """
     Calculates revenue for a specific month.
-
     Issue:
     Inaccurate Monthly Revenue (Timezone Issue).
     Solution:
